@@ -1,16 +1,22 @@
-# ETL (Extração, Transformação e Carregamento)
 
-Recebendo dados de duas bases diferentes e com tipos de dados divergentes, devemos consolidar os dados, padronizando e enviá-los para uma API.
+# Pipeline ETL: Personalização de Marketing com IA
 
-Projeto desenvolvido de acordo com o desafio proposto no Bootcamp Totvs ministrado pela Dio (Digital Innovation One).
+Este projeto demonstra um pipeline completo de ETL (Extrair, Transformar, Carregar). O script consome dados de clientes via CSV, utiliza a Inteligência Artificial do Google (Gemini) para gerar mensagens personalizadas de investimento e, por fim, carrega esses dados em uma API REST.
 
-## Descrição
-Esse tem como objetivo demonstrar as etapas para construção de um pipeline ETL (Extração, Transformação e Carregamento), demonstrando a relação entre dados, Inteligência Artificial (IA) e APIs. 
+## Fluxo do Projeto
 
-## Linguagem utilizada:
-* Python 3.12
+**Extrair**: Leitura de um arquivo dados.csv contendo informações bancárias (nome, conta, agência, saldos).
 
-## Extração:
-* Biblioteca utilizadao: pandas
+**Transformar:**
+1. Limpeza e padronização de nomes (Proper Case).
+2. Formatação de strings (Zfill em agências).
+3. Integração com IA: Uso do modelo gemini-1.5-flash para criar dicas de investimento curtas (máx. 100 caracteres) personalizadas para cada usuário.
 
- Nesta etapa faremos a obtenção dos dados
+**Carregar:** Conversão dos dados para o formato JSON esperado pela API e envio via requisições POST.
+
+## Tecnologias Utilizadas
+* Python 3.10+
+* Pandas: Manipulação e tratamento de dados.
+* Google Generative AI (SDK): Geração de conteúdo com IA.
+* Requests: Integração com APIs REST.
+* Python-dotenv: Gerenciamento de variáveis de ambiente (API Keys).
